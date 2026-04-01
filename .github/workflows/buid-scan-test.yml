@@ -18,6 +18,7 @@ jobs:
 
             - name: Build code
               run: |
+                ls -l
                 chmod +x ./mvnw
                 ./sh mvnw org.owasp:dependency-check-maven:check
                 ./sh mvnw package -DskipTests
