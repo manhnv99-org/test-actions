@@ -36,4 +36,4 @@ jobs:
       - run: echo 'Hi ${{ env.name }}'
         env:
           name: "Luat"
-      - run: echo 'Print Secret Key ${{ secrets }}'
+      - run: echo 'Print Secret Key ${{ secrets.MY_SECRET }}'
