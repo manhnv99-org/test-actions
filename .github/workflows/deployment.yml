@@ -19,7 +19,7 @@ env:
   MY_SECRET: ${{ secrets.MY_SECRET }}
   DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
   DB_URL: ${{ vars.DB_URL }}
-
+  USERNAME: "first username"
 
 jobs:
   build:
@@ -41,7 +41,7 @@ jobs:
     steps:
       - run: echo 'Hi ${{ env.name }}'
       - run: echo 'Hi ${{ env.name }}'
-      - run: echo 'Hi USERNAME ${{ env.USERNAME }}'
+      - run: echo 'Hi overwrite ${{ env.USERNAME }}'
         env:
           name: "Luat"
       # Repository secret
