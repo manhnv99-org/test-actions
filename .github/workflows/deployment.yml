@@ -16,6 +16,10 @@ on:
 
 env:
   name: "manh"
+  MY_SECRET: ${{ secrets.MY_SECRET }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  DB_URL: ${{ vars.DB_URL }}
+
 
 jobs:
   build:
@@ -38,7 +42,7 @@ jobs:
         env:
           name: "Luat"
       # Repository secret
-      - run: echo 'Print Secret Key ${{ secrets.MY_SECRET }}'
+      - run: echo 'Print Secret Key ${{ env.MY_SECRET }}'
       # Enviroment secret
-      - run: echo 'MY DB PASSWORD FROM ENV DEV ${{ secrets.DB_PASSWORD }}'
-      - run: echo 'MY DB URL FROM ENV DEV ${{ vars.DB_URL }}'
+      - run: echo 'MY DB PASSWORD FROM ENV DEV ${{ env.DB_PASSWORD }}'
+      - run: echo 'MY DB URL FROM ENV DEV ${{ env.DB_URL }}'
