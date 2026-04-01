@@ -36,4 +36,8 @@ jobs:
       - run: echo 'Hi ${{ env.name }}'
         env:
           name: "Luat"
+      # Repository secret
       - run: echo 'Print Secret Key ${{ secrets.MY_SECRET }}'
+      # Enviroment secret
+      - run: echo 'MY DB PASSWORD FROM ENV DEV ${{ secrets.DB_PASSWORD }}'
+      - run: echo 'MY DB URL FROM ENV DEV ${{ vars.DB_URL }}'
