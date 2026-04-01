@@ -25,6 +25,7 @@ jobs:
   build:
     env:
       USERNAME: "brian"
+      name: "overwrite manh"
     runs-on: ubuntu-latest
     environment: dev
 
@@ -41,9 +42,9 @@ jobs:
     steps:
       - run: echo 'Hi ${{ env.name }}'
       - run: echo 'Hi ${{ env.name }}'
-      - run: echo 'Hi overwrite ${{ env.USERNAME }}'
         env:
-          name: "Luat"
+          name: "Over write with Luat"
+      - run: echo 'Hi overwrite ${{ env.USERNAME }}'
       # Repository secret
       - run: echo 'Print Secret Key ${{ env.MY_SECRET }}'
       # Enviroment secret
