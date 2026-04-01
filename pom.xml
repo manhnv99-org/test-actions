@@ -18,6 +18,8 @@
     </parent>
 
     <properties>
+        <nvdApiKey>9ae24d90-b729-4ba2-99ef-86726f575ebb</nvdApiKey>
+		<nvdApiDelay>4000</nvdApiDelay>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
