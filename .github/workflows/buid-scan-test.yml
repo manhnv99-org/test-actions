@@ -15,13 +15,13 @@ jobs:
                 java-version: '17'
                 distribution: 'temurin'
                 cache: maven
-                
+
             - name: Build code
               run: |
                 chmod +x mvnw
-                ./mvnw -version
-                ./mvnw org.owasp:dependency-check-maven:check
-                ./mvnw package -DskipTests
+                ../.././mvnw -version
+                ../.././mvnw org.owasp:dependency-check-maven:check
+                ../.././mvnw package -DskipTests
 
 
 
