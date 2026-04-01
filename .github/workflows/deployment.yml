@@ -23,6 +23,8 @@ env:
 
 jobs:
   build:
+    env:
+      USERNAME: "brian"
     runs-on: ubuntu-latest
     environment: dev
 
@@ -39,6 +41,7 @@ jobs:
     steps:
       - run: echo 'Hi ${{ env.name }}'
       - run: echo 'Hi ${{ env.name }}'
+      - run: echo 'Hi USERNAME ${{ env.USERNAME }}'
         env:
           name: "Luat"
       # Repository secret
