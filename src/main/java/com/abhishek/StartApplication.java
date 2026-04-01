@@ -16,7 +16,7 @@ public class StartApplication {
         model.addAttribute("msg", "This application is deployed on to Kubernetes using Argo CD");
         return "index";
     }
-
+321321
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class, args);
     }
