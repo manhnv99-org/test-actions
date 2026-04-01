@@ -53,6 +53,14 @@
 
         <finalName>spring-boot-web</finalName>
 
+        <extensions>
+			<extension>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>1.7.1</version>
+			</extension>
+		</extensions>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -67,6 +75,27 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>${dependency-check-maven.version}</version>
+				<configuration>
+					<ossIndexUsername>edward@vinova.sg</ossIndexUsername>
+					<ossIndexPassword>68e6da695896cce8fd37112823c91c0e6ef7a25f</ossIndexPassword>
+					<failBuildOnCVSS>8</failBuildOnCVSS>
+					<suppressionFiles>src/maven/dependency-check-suppression.xml</suppressionFiles>
+					<knownExploitedUrl>
+						https://raw.githubusercontent.com/EugenMayer/cisa-known-exploited-mirror/main/known_exploited_vulnerabilities.json</knownExploitedUrl>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
         </plugins>
     </build>
