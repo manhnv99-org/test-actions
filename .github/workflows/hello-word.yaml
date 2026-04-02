@@ -7,8 +7,6 @@ run-name: "Run name with commit: ${{ github.event.head_commit.message }}"
 on:
     workflow_dispatch:
     push:
-        branches:
-            - master
     pull_request:
         branches:
             - master
