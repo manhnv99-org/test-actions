@@ -4,16 +4,22 @@ on:
     issues:
         types: [opened]
 
+env:
+    OWNER_AND_REPO: ${{ github.repository.full_name }}
+    ISSUE_NUMBER: ${{ github.repository.open_issues }}
+
+
 jobs:
     add-default-message:
         runs-on: ubuntu-latest
         steps:
             - name: Add default message
+              env:
+                GITHUB_TOKEN: ${{ github.token }}
               run: |
-                curl -L \
-                -X POST \
+                gh api \
+                --method POST \
                 -H "Accept: application/vnd.github+json" \
-                -H "Authorization: Bearer ${{github.token}}" \
                 -H "X-GitHub-Api-Version: 2026-03-10" \
-                https://api.github.com/repos/${{ github.repository.full_name }}/issues/${{ github.repository.open_issues }}/comments \
-                -d '{"body":"Me too"}'
+                /repos/${{ env.OWNER_AND_REPO }}/issues/${{ env.ISSUE_NUMBER }}/comments \
+                -f 'body=Me too'
