@@ -28,7 +28,6 @@ jobs:
             - name: "Execute something in external"
               run: |
                 ls -l
-                ./action.sh
     
     #  the second job run on ubuntu OS
     say-goodbye:
