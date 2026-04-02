@@ -15,6 +15,8 @@ public class StartApplication {
 
         boolean abc = true ? true : false;
 
+        boolean abcss = true;
+
         model.addAttribute("title", "I have successfuly built a sprint boot application using Maven");
         model.addAttribute("msg", "This application is deployed on to Kubernetes using Argo CD");
         return "index";
