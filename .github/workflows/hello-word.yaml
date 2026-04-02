@@ -1,7 +1,9 @@
 name: Hello World
 
+# overwrite the commit message
 run-name: "Overwrite the run-name intead of commit message"
 
+# event to trigger the workflows
 on:
     push:
         branches:
@@ -9,9 +11,12 @@ on:
     pull_request:
         branches:
             - master
+# All the job run in pararell if not depend on each others
 jobs:
+    # the first job run on ubuntu OS
     say-hello:
         runs-on: ubuntu-latest
+        # define all the step in this job
         steps:
             - name: "Checkout Code"
               uses: actions/checkout@v4
@@ -20,8 +25,11 @@ jobs:
               run: echo "hello bro!"
               shell: bash
     
+    #  the second job run on ubuntu OS
     say-goodbye:
+        needs: [say-hello]
         runs-on: ubuntu-latest
+
         steps:
             - name: "Say goodbye"
               run: echo "Goodbye bro!"
