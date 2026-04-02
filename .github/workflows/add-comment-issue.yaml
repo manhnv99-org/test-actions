@@ -1,25 +1,25 @@
-name: Add Commit For An Issue
+name: Add Comment For An Issue
 
 on:
-    issues:
-        types: [opened]
-
-env:
-    OWNER_AND_REPO: ${{ github.repository.full_name }}
-    ISSUE_NUMBER: ${{ github.repository.open_issues }}
-
+  issues:
+    types: [opened]
 
 jobs:
-    add-default-message:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Add default message
-              env:
-                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                gh api \
-                --method POST \
-                -H "Accept: application/vnd.github+json" \
-                -H "X-GitHub-Api-Version: 2026-03-10" \
-                /repos/${{ env.OWNER_AND_REPO }}/issues/${{ env.ISSUE_NUMBER }}/comments \
-                -f 'body=Me too'
+  add-default-message:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write # Cần cấp quyền ghi để comment được
+    steps:
+      - name: Add default message
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Lấy trực tiếp từ context của event
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/$REPO/issues/$ISSUE_NUMBER/comments \
+            -f "body=Me too"
