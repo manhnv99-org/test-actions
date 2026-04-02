@@ -26,7 +26,7 @@ jobs:
               shell: bash
 
             - name: "Github event"
-              run: echo '${{ toJson(github.event) }}'
+              run: echo '${{ toJson(github) }}'
     
     #  the second job run on ubuntu OS
     say-goodbye:
