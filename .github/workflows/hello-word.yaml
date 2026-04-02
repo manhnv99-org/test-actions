@@ -12,6 +12,10 @@ on:
     pull_request:
         branches:
             - master
+
+env:
+    MY_NAME: "manh"
+
 # All the job run in pararell if not depend on each others
 jobs:
     # the first job run on ubuntu OS
@@ -31,6 +35,12 @@ jobs:
                 ls -l
                 chmod +x action.sh
                 ./action.sh
+
+            - name: "Print my Name"
+              run: echo $MY_NAME
+              env:
+                MY_NAME: "brian" 
+
     
     #  the second job run on ubuntu OS
     say-goodbye:
@@ -41,4 +51,7 @@ jobs:
             - name: "Say goodbye"
               run: echo "Goodbye bro!"
               shell: bash
+
+            - name: "Print my Name"
+              run: echo $MY_NAME
               
