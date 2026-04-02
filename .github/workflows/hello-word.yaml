@@ -22,12 +22,17 @@ jobs:
     say-hello:
         runs-on: ubuntu-latest
         # define all the step in this job
+        outputs:
+            who_to_greet: ${{ steps.define_who_to_greet.outputs.person_name }}
         steps:
             - name: "Checkout Code"
               uses: actions/checkout@v4
             
-            - name: "Say hello"
-              run: echo "hello bro!"
+            - id: "define_who_to_greet"
+              name: "Say hello"
+              run: |
+                echo "hello bro!"
+                echo "person_name=brian" >> $GITHUB_OUTPUT
               shell: bash
 
             - name: "Execute something in external"
@@ -49,7 +54,7 @@ jobs:
 
         steps:
             - name: "Say goodbye"
-              run: echo "Goodbye bro!"
+              run: echo "Goodbye bro ${{ needs.say-hello.outputs.who_to_greet }} !"
               shell: bash
 
             - name: "Print my Name"
