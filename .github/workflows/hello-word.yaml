@@ -1,7 +1,7 @@
 name: Hello World
 
 # overwrite the commit message
-run-name: "Overwrite the run-name intead of commit message"
+run-name: "Run name with commit ${{ github.event.head_commit.message }}"
 
 # event to trigger the workflows
 on:
@@ -26,7 +26,7 @@ jobs:
               shell: bash
 
             - name: "Github event"
-              run: echo '${{ toJson(github.event) }}' || jq
+              run: echo '${{ toJson(github.event) }}'
     
     #  the second job run on ubuntu OS
     say-goodbye:
