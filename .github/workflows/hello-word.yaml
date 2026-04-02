@@ -5,6 +5,7 @@ run-name: "Run name with commit: ${{ github.event.head_commit.message }}"
 
 # event to trigger the workflows
 on:
+    workflow_dispatch:
     push:
         branches:
             - master
