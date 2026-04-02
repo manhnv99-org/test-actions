@@ -18,8 +18,8 @@ jobs:
         runs-on: ubuntu-latest
         # define all the step in this job
         steps:
-            # - name: "Checkout Code"
-            #   uses: actions/checkout@v4
+            - name: "Checkout Code"
+              uses: actions/checkout@v4
             
             - name: "Say hello"
               run: echo "hello bro!"
@@ -28,6 +28,7 @@ jobs:
             - name: "Execute something in external"
               run: |
                 ls -l
+                ./action.sh
     
     #  the second job run on ubuntu OS
     say-goodbye:
