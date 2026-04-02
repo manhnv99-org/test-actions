@@ -15,7 +15,7 @@ jobs:
         steps:
             - name: Add default message
               env:
-                GITHUB_TOKEN: ${{ github.token }}
+                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                 gh api \
                 --method POST \
