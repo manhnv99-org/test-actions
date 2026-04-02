@@ -1,5 +1,7 @@
 name: Hello World
 
+run-name: "Overwrite the run-name intead of commit message"
+
 on:
     push:
         branches:
