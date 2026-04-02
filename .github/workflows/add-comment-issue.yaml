@@ -7,6 +7,8 @@ on:
 jobs:
   add-default-message:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write # Cần cấp quyền ghi để comment được
     steps:
       - name: Add default message
         env:
