@@ -1,0 +1,12 @@
+name: Add Commit For An Issue
+
+on:
+    issues:
+        types: [opened]
+
+jobs:
+    print-message:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print message
+              run: echo hi
