@@ -1,26 +1,26 @@
-name: Build And Scan Security And Test
+# name: Build And Scan Security And Test
 
-on: push
+# on: push
 
-jobs:
-    build-source-code:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Check out code
-              uses: actions/checkout@v4
+# jobs:
+#     build-source-code:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Check out code
+#               uses: actions/checkout@v4
             
-            - name: Set up JDK 17
-              uses: actions/setup-java@v4
-              with:
-                java-version: '17'
-                distribution: 'temurin'
-                cache: maven
+#             - name: Set up JDK 17
+#               uses: actions/setup-java@v4
+#               with:
+#                 java-version: '17'
+#                 distribution: 'temurin'
+#                 cache: maven
 
-            - name: Build code
-              run: |
-                ls -l .
-                chmod +x mvnw
-                # sh mvnw org.owasp:dependency-check-maven:check
-                sh mvnw package -DskipTests
+#             - name: Build code
+#               run: |
+#                 ls -l .
+#                 chmod +x mvnw
+#                 # sh mvnw org.owasp:dependency-check-maven:check
+#                 sh mvnw package -DskipTests
 
 
