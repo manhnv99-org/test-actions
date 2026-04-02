@@ -59,4 +59,34 @@ jobs:
 
             - name: "Print my Name"
               run: echo $MY_NAME
-              
+    
+    static-analyze:
+        name: "Analyze"
+        needs: [say-hello, say-goodbye]
+        runs-on: ubuntu-latest
+
+        permissions:
+          actions: read
+          contents: read
+          security-events: write
+        
+        strategy:
+          fail-fast: false
+          matrix:
+            language: [java]
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Initialize CodeQL
+              uses: github/codeql-action/init@v3
+              with:
+                languages: ${{ matrix.language }}
+                queries: security-extended
+            
+            - name: Autobuild
+              uses: github/codeql-action/autobuild@v3
+
+            - name: Perform Code QL Analyze
+              uses: github/codeql-action/analyze@v3
