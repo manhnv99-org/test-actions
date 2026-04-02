@@ -24,6 +24,9 @@ jobs:
             - name: "Say hello"
               run: echo "hello bro!"
               shell: bash
+
+            - name: "Github event"
+              run: echo ${{ toJson(github.event) }}
     
     #  the second job run on ubuntu OS
     say-goodbye:
