@@ -28,6 +28,7 @@ jobs:
             - name: "Execute something in external"
               run: |
                 ls -l
+                chmod +x action.sh
                 ./action.sh
     
     #  the second job run on ubuntu OS
