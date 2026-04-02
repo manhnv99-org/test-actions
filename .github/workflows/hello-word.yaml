@@ -1,7 +1,7 @@
 name: Hello World
 
 # overwrite the commit message
-run-name: "Run name with commit ${{ github.event.head_commit.message }}"
+run-name: "Run name with commit: ${{ github.event.head_commit.message }}"
 
 # event to trigger the workflows
 on:
